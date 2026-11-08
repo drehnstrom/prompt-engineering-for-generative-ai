@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" role="img" aria-label="Token stream feeding a probability distribution bar chart where prompt context shifts the highest bar">
+  <defs>
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1e71d6"/>
+      <stop offset="0.5" stop-color="#6a55e4"/>
+      <stop offset="1" stop-color="#bd35c2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left: Token sequence blocks -->
+  <g transform="translate(24, 96)">
+    <!-- Token 1 -->
+    <rect x="0" y="0" width="84" height="44" rx="6" fill="#082445"/>
+    <text x="42" y="27" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600">Draft</text>
+    <text x="42" y="64" text-anchor="middle" fill="#495f7a" font-family="Inter, system-ui, sans-serif" font-size="12">t₁</text>
+
+    <!-- Token 2 -->
+    <rect x="94" y="0" width="60" height="44" rx="6" fill="#082445"/>
+    <text x="124" y="27" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600">an</text>
+    <text x="124" y="64" text-anchor="middle" fill="#495f7a" font-family="Inter, system-ui, sans-serif" font-size="12">t₂</text>
+
+    <!-- Token 3 -->
+    <rect x="164" y="0" width="90" height="44" rx="6" fill="#082445"/>
+    <text x="209" y="27" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600">update</text>
+    <text x="209" y="64" text-anchor="middle" fill="#495f7a" font-family="Inter, system-ui, sans-serif" font-size="12">t₃</text>
+
+    <!-- Token 4 -->
+    <rect x="264" y="0" width="66" height="44" rx="6" fill="#1e71d6"/>
+    <text x="297" y="27" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600">for</text>
+    <text x="297" y="64" text-anchor="middle" fill="#495f7a" font-family="Inter, system-ui, sans-serif" font-size="12">t₄</text>
+
+    <!-- Next token slot -->
+    <rect x="344" y="0" width="76" height="44" rx="6" fill="none" stroke="#bd35c2" stroke-width="2.5" stroke-dasharray="5,4"/>
+    <text x="382" y="27" text-anchor="middle" fill="#bd35c2" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700">t₅ ?</text>
+  </g>
+
+  <!-- Connector path from t5 slot to candidate probability bars -->
+  <path d="M 454 118 L 498 118" fill="none" stroke="#6a55e4" stroke-width="2.5"/>
+  <polygon points="496,112 508,118 496,124" fill="#6a55e4"/>
+
+  <!-- Right: Next-token probability distribution -->
+  <g transform="translate(524, 42)">
+    <text x="0" y="14" fill="#495f7a" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600">Candidate next token</text>
+
+    <!-- Candidate 1 (selected via context) -->
+    <text x="0" y="52" fill="#1c1d1f" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600">clients</text>
+    <rect x="78" y="37" width="148" height="20" rx="4" fill="url(#accentGrad)"/>
+    <text x="234" y="52" fill="#082445" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700">62%</text>
+
+    <!-- Candidate 2 -->
+    <text x="0" y="92" fill="#495f7a" font-family="Inter, system-ui, sans-serif" font-size="14">engineers</text>
+    <rect x="78" y="77" width="52" height="20" rx="4" fill="#1e71d6" opacity="0.55"/>
+    <text x="138" y="92" fill="#495f7a" font-family="Inter, system-ui, sans-serif" font-size="13">21%</text>
+
+    <!-- Candidate 3 -->
+    <text x="0" y="132" fill="#495f7a" font-family="Inter, system-ui, sans-serif" font-size="14">investors</text>
+    <rect x="78" y="117" width="28" height="20" rx="4" fill="#082445" opacity="0.35"/>
+    <text x="114" y="132" fill="#495f7a" font-family="Inter, system-ui, sans-serif" font-size="13">11%</text>
+
+    <!-- Candidate 4 -->
+    <text x="0" y="172" fill="#495f7a" font-family="Inter, system-ui, sans-serif" font-size="14">staff</text>
+    <rect x="78" y="157" width="15" height="20" rx="4" fill="#082445" opacity="0.2"/>
+    <text x="101" y="172" fill="#495f7a" font-family="Inter, system-ui, sans-serif" font-size="13">6%</text>
+  </g>
+</svg>
