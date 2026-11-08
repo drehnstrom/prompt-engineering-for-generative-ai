@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 270" role="img" aria-label="Comparison of a direct leap from prompt tokens to an uncertain answer versus step-by-step intermediate reasoning tokens that anchor the final answer">
+  <defs>
+    <linearGradient id="stepGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1e71d6"/>
+      <stop offset="0.55" stop-color="#6a55e4"/>
+      <stop offset="1" stop-color="#bd35c2"/>
+    </linearGradient>
+    <marker id="arrowMuted" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#495f7a"/>
+    </marker>
+    <marker id="arrowAccent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#bd35c2"/>
+    </marker>
+  </defs>
+
+  <!-- Track 1: Direct leap without intermediate tokens -->
+  <text x="16" y="42" fill="#495f7a" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600">DIRECT JUMP</text>
+
+  <!-- Prompt token blocks -->
+  <rect x="16" y="54" width="170" height="44" rx="6" fill="#082445"/>
+  <text x="101" y="81" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600">12 staff, -4 out, x 5h</text>
+
+  <!-- Long unanchored leap across empty context space -->
+  <line x1="196" y1="76" x2="612" y2="76" stroke="#495f7a" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#arrowMuted)"/>
+  <text x="404" y="66" text-anchor="middle" fill="#495f7a" font-family="Inter, system-ui, sans-serif" font-size="12">no intermediate tokens in context</text>
+
+  <!-- Uncertain output + flat probability bars -->
+  <rect x="624" y="54" width="110" height="44" rx="6" fill="none" stroke="#495f7a" stroke-width="2"/>
+  <text x="679" y="81" text-anchor="middle" fill="#1c1d1f" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600">60 ?  48 ?</text>
+
+  <!-- Flat split probability bars -->
+  <rect x="750" y="56" width="38" height="10" rx="2" fill="#495f7a"/>
+  <rect x="750" y="71" width="44" height="10" rx="2" fill="#495f7a"/>
+  <rect x="750" y="86" width="32" height="10" rx="2" fill="#495f7a"/>
+  <text x="802" y="80" fill="#495f7a" font-family="Inter, system-ui, sans-serif" font-size="12">split odds</text>
+
+  <!-- Track 2: Step-by-step token chain in context window -->
+  <text x="16" y="158" fill="#1e71d6" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600">STEP-BY-STEP CHAIN IN CONTEXT WINDOW</text>
+
+  <!-- Prompt token block -->
+  <rect x="16" y="170" width="170" height="48" rx="6" fill="#082445"/>
+  <text x="101" y="199" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600">12 staff, -4 out, x 5h</text>
+
+  <line x1="192" y1="194" x2="222" y2="194" stroke="#1e71d6" stroke-width="2.5" marker-end="url(#arrowAccent)"/>
+
+  <!-- Step 1 token block -->
+  <rect x="230" y="170" width="166" height="48" rx="6" fill="#1e71d6"/>
+  <text x="313" y="191" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="12">Step 1: active staff</text>
+  <text x="313" y="209" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700">12 - 4 = 8</text>
+
+  <line x1="402" y1="194" x2="432" y2="194" stroke="#6a55e4" stroke-width="2.5" marker-end="url(#arrowAccent)"/>
+
+  <!-- Step 2 token block -->
+  <rect x="440" y="170" width="166" height="48" rx="6" fill="#6a55e4"/>
+  <text x="523" y="191" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="12">Step 2: staff-hours</text>
+  <text x="523" y="209" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700">8 x 5h = 40h</text>
+
+  <line x1="612" y1="194" x2="638" y2="194" stroke="#bd35c2" stroke-width="2.5" marker-end="url(#arrowAccent)"/>
+
+  <!-- Final verified token block -->
+  <rect x="646" y="170" width="88" height="48" rx="6" fill="#bd35c2"/>
+  <text x="690" y="191" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="11">Final</text>
+  <text x="690" y="210" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700">40 hrs</text>
+
+  <!-- High confidence bar -->
+  <rect x="750" y="172" width="90" height="12" rx="2" fill="url(#stepGrad)"/>
+  <rect x="750" y="190" width="14" height="10" rx="2" fill="#495f7a"/>
+  <rect x="750" y="204" width="10" height="10" rx="2" fill="#495f7a"/>
+  <text x="772" y="208" fill="#082445" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">anchored</text>
+
+  <!-- Context window bracket under Step 1 + Step 2 -->
+  <path d="M 16 232 L 16 242 L 606 242 L 606 232" fill="none" stroke="#1e71d6" stroke-width="1.8"/>
+  <text x="311" y="258" text-anchor="middle" fill="#495f7a" font-family="Inter, system-ui, sans-serif" font-size="12">all generated steps stay in the context window to guide the final token</text>
+</svg>

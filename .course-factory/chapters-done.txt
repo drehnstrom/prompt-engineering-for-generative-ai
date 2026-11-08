@@ -1,1 +1,2 @@
 course/01-foundations-of-prompt-engineering.md
+course/02-core-prompting-techniques.md
