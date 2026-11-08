@@ -53,6 +53,18 @@ Prompt Engineering for Generative AI
 
 ---
 
+# Do Now: Watch Gemini Fill in the Blanks
+
+Try this in Gemini before we look at the fix.
+
+- Open a new Gemini chat and run this exact one-line prompt:
+  - `"Write an email about the project delay."`
+- Write down three details Gemini invented on its own:
+  - What caused the delay, when the new deadline is, and who receives the email
+- Compare your output with another person in the room to see how the guesses differ
+
+---
+
 <!-- layout: 2-column -->
 # Vague Prompts vs. Specific Context
 
@@ -110,6 +122,9 @@ Task: Explain why employees must use a password manager instead of reusing passw
 Context: New hires complete onboarding in 15 minutes and feel overwhelmed by rules.
 Constraints: Keep the explanation under 100 words, avoid security jargon like "credential stuffing," and end with one clear action step.
 ```
+
+> [!NOTE]
+> You can write these four building blocks as natural sentences or with explicit labels like `Persona:` and `Task:`. Explicit labels make it much easier to read, edit, and reuse your prompt later.
 
 ---
 
@@ -177,6 +192,17 @@ Tone: Write in a warm, plain-language style aimed at small-business owners with 
 
 > [!WARNING]
 > Combining conflicting tone instructions like `"be casual and conversational"` with `"use strict legal formality"` produces uneven, awkward phrasing.
+
+---
+
+# Demo: Reshaping One Response with Format and Tone
+
+Watch how changing only the **Format** and **Tone** lines reshapes the same facts in Gemini.
+
+- **Shared Context**: Release 2.4 adds single sign-on, faster CSV exports, and mobile receipt scanning
+- **Run 1 (Executive Brief)**: Request a 3-bullet summary in a concise, formal tone for a chief information officer
+- **Run 2 (Customer Guide)**: Request a 3-column Markdown table (`Feature`, `What Changed`, `How It Saves Time`) in a warm, plain-language tone
+- Notice how the facts remain identical while the layout, vocabulary, and sentence structure shift completely
 
 ---
 

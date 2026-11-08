@@ -55,16 +55,16 @@ Prompt Engineering for Generative AI
 # Diagnosing Why a Prompt Failed
 
 ### Symptom in Gemini Output
-- Generic advice that could apply to any company
-- Wrong structure or inconsistent bullet labels
-- Rambling paragraphs that bury the main point
-- Invented policies, dates, or pricing details
+- **1. Generic advice** that could apply to any company
+- **2. Wrong structure** or inconsistent bullet labels
+- **3. Rambling paragraphs** that bury the main point
+- **4. Invented policies**, dates, or pricing details
 
 ### Targeted Prompt Fix
-- **Add Context**: Paste the specific background notes, audience details, and product facts
-- **Add Examples**: Supply 2 to 3 few-shot pairs or an explicit Markdown template
-- **Tighten Constraints**: Set a strict word or sentence cap and ban conversational filler
-- **Ground the Prompt**: Restrict the model to your source text and give it an escape hatch
+- **1. Add Context**: Paste the specific background notes, audience details, and product facts
+- **2. Add Examples**: Supply 2 to 3 few-shot pairs or an explicit Markdown template
+- **3. Tighten Constraints**: Set a strict word or sentence cap and ban conversational filler
+- **4. Ground the Prompt**: Restrict the model to your source text and give it an escape hatch
 
 <!-- below-columns -->
 
@@ -135,6 +135,22 @@ Question 2: Are part-time contractors eligible for paid sick leave?
 
 ---
 
+# Demo: Testing the Escape Hatch in Gemini
+
+Watch what happens when we run the grounded `<policy_source>` prompt from the previous slide in Gemini.
+
+```text
+Question 1: Up to 5 unused vacation days can roll over into the first quarter of the next year.
+Supporting quote: "Unused vacation days up to 5 days may roll over into the first quarter of the next year."
+
+Question 2: Not stated in the provided policy.
+```
+
+- Without the escape hatch, an ungrounded prompt often invents a plausible contractor sick-leave policy
+- Requiring an exact quote lets you verify Question 1 in seconds and confirms Question 2 did not guess
+
+---
+
 <!-- layout: 2-column -->
 # Verifying Factual Claims in Gemini
 
@@ -199,6 +215,21 @@ Question 2: Are part-time contractors eligible for paid sick leave?
 - Check whether you are signed into a personal consumer account or an enterprise Google Workspace account
 - Follow your organization’s acceptable-use and data-classification rules
 - Review chat history and activity settings for your account tier
+
+---
+
+# Do Now: Sanitize a Risky Prompt Before Sending
+
+Rewrite this rough prompt so it is safe to paste into a personal Gemini chat while still producing a helpful reply draft.
+
+```text
+Draft a polite billing apology email to Maria Gomez at 742 Evergreen Terrace, Austin, TX.
+Explain that we reversed the duplicate $149.00 charge on Visa card ending in 8492 (Account #AC-99812)
+and reset her temporary login password to Spring2025!Temp.
+```
+
+- Identify every detail that should be removed or replaced with a placeholder like `[Customer Name]`
+- Decide which detail should never be sent in a plain-text email or AI prompt at all
 
 ---
 

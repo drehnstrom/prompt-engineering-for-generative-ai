@@ -54,7 +54,7 @@ Prompt Engineering for Generative AI
 
 - Describing a custom format or classification rule in prose often leaves room for interpretation
 - A zero-shot prompt to tag support tickets may invent inconsistent labels like `"Urgent!"`, `"High Priority"`, or `"P1"`
-- Providing a few input-output pairs locks the exact vocabulary and punctuation
+- Providing a few input-output pairs and ending with an open `Category:` label locks the exact vocabulary
 
 ```text
 Classify each support message as Billing, Technical, or Account.
@@ -161,6 +161,27 @@ Customer Update:
 
 ---
 
+# Discuss: Why Did This Few-Shot Prompt Fail?
+
+A teammate wrote this prompt expecting a single word (`High`, `Medium`, or `Low`), but Gemini keeps returning full sentences. What three flaws do you spot?
+
+```text
+Reply with a single word only: High, Medium, or Low.
+
+Ticket: "Production database is offline for all users."
+Priority: High - assign to the on-call database engineer immediately.
+
+Issue: "Checkout page is failing on Safari."
+Result: High - escalate to the frontend team right away.
+
+Request: "Can we change the footer link color next quarter?"
+Output:
+```
+
+- Look closely at the example outputs, the category coverage, and the label names
+
+---
+
 <!-- layout: navigation -->
 # Chapter 2
 
@@ -192,8 +213,20 @@ Customer Update:
 
 ### Step-by-Step Prompt (Reliable)
 - `"Solve this problem step by step: 1) calculate active agents today, 2) calculate productive hours per agent, 3) calculate total tickets resolved across the team, and 4) state the final total on the last line."`
-- Generates `12 - 4 = 8 agents` and `6 - 1 = 5 hours` before multiplying
+- Generates `12 - 4 = 8 agents` and `6 - 1 = 5 hours` before multiplying `8 * 5 * 3 = 120 tickets`
 - Makes the math easy for you to verify at a glance
+
+---
+
+# Do Now: Compare Direct Leap and Step-by-Step in Gemini
+
+Try both versions in Gemini so you can see what changes in the output.
+
+- Run the **Direct Leap** prompt from the previous slide (`"Return only the final number"`)
+- Now run the **Step-by-Step** version with the four numbered steps
+- Check the step-by-step response:
+  - Can you immediately verify `8 active agents`, `5 productive hours`, and `120 total tickets`?
+  - Which output would you trust before sending a capacity estimate to your manager?
 
 ---
 
